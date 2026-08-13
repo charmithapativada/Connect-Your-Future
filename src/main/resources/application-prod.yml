@@ -1,0 +1,19 @@
+# Active when spring.profiles.active=prod (set as an env var on the real server --
+# never hardcoded here). No defaults/fallbacks on purpose: if a required env var
+# is missing in production, startup should fail loudly rather than silently using
+# a placeholder value. Not wired to a real server yet -- this is a placeholder
+# for Week 8 (Section 4, Phase deployment) in the team plan.
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate   # prod never auto-alters the schema -- migrations do that
+    show-sql: false
+
+logging:
+  level:
+    com.campusmentor: INFO

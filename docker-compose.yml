@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: campusmentor-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: campusmentor
+      MYSQL_USER: campusmentor_user
+      MYSQL_PASSWORD: campusmentor_pass
+      MYSQL_ROOT_PASSWORD: root_dev_only
+    ports:
+      - "3306:3306"
+    volumes:
+      - campusmentor_mysql_data:/var/lib/mysql
+
+volumes:
+  campusmentor_mysql_data:

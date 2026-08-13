@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: campusmentor-backend
+  profiles:
+    active: local   # switched to "prod" via an env var when deployed later
+
+server:
+  port: 8080
